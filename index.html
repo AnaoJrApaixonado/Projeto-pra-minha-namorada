@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casa comigo, vai</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f8f9fa; /* Light background color */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      color: #6a1b9a; /* Darker purple */
+    }
+
+    .btn {
+      display: inline-block;
+      font-weight: 400;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      user-select: none;
+      border: 1px solid transparent;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: 0.25rem;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background-color: #7952b3; /* Purple color */
+      border-color: #7952b3;
+    }
+
+    .btn-primary:hover {
+      color: #fff;
+      background-color: #6a1b9a; /* Darker purple on hover */
+      border-color: #6a1b9a;
+    }
+
+    #no {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #dc3545; /* Red color */
+      color: #fff; /* Text color */
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    #no:hover {
+      background-color: #c82333; /* Darker red on hover */
+      animation: moveAnimation 0.5s ease-in-out;
+    }
+
+    @keyframes moveAnimation {
+      0% {
+        transform: translate(-50%, -50%);
+      }
+      50% {
+        transform: translate(-50%, -50%) translate(10px, 10px);
+      }
+      100% {
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    #result {
+      text-align: center;
+      display: none;
+      margin-top: 20px;
+    }
+
+    #generatedText {
+      color: #28a745; /* Green color */
+    }
+
+    #generatedImage {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>A senhorita Yenifer Ojeda Duarte aceita se casar comigo, porfavorzinho (Amor da minha vida ai)?</h1>
+
+<button id="yes" class="btn btn-primary" onclick="showResult(true)">Sim</button>
+<button id="no" class="btn" onmouseover="moveButton()">Não</button>
+
+<div id="result">
+  <p id="generatedText"></p>
+  <img id="generatedImage" src="https://via.placeholder.com/300" alt="Generated Image">
+</div>
+
+<script>
+  function showResult(isYes) {
+    var resultDiv = document.getElementById('result');
+    var generatedText = document.getElementById('generatedText');
+    var generatedImage = document.getElementById('generatedImage');
+
+    if (isYes) {
+      resultDiv.style.backgroundColor = '#e6ffe6'; /* Light green background for 'Sim' */
+      generatedText.innerText = '"Meu amor por você é como um abraço eterno, onde cada Te amo é uma batida do coração que nunca para de pulsar.';
+      generatedImage.src = 'OIP.jpg';
+    }
+
+    resultDiv.style.display = 'block';
+  }
+
+  function moveButton() {
+    var button = document.getElementById('no');
+
+    // Calculate new random position
+    var screenWidth = window.innerWidth - button.offsetWidth;
+    var screenHeight = window.innerHeight - button.offsetHeight;
+
+    var newLeft = Math.floor(Math.random() * screenWidth);
+    var newTop = Math.floor(Math.random() * screenHeight);
+
+    // Apply new position
+    button.style.left = newLeft + 'px';
+    button.style.top = newTop + 'px';
+  }
+</script>
+
+</body>
+</html>
